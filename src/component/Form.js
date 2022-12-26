@@ -4,14 +4,18 @@ const Form = ( {inputText, setInputText, todos, setTodos} ) => {
     const inputTextHandler = (e) => {
         console.log(e.target.value)
         setInputText(e.target.value)
-    }
+    };
     const submitTodoHandler = (e) => {
         e.preventDefault()
         setTodos([
             ...todos, {text: inputText, completed: false, id: Math.random()*1000 }
         ]);
         setInputText("");
+    };
+    const statusHandler = (e) => {
+        console.log(e.target.value);
     }
+
 
 
 
@@ -23,7 +27,7 @@ const Form = ( {inputText, setInputText, todos, setTodos} ) => {
         </button>
 
         <div className="select">
-            <select name="todo" className="filter">
+            <select onChange={statusHandler} name="todo" className="filter">
                 <option value="all">All</option>
                 <option value="completed">Completed</option>
                 <option value="uncompleted">Uncompleted</option>
