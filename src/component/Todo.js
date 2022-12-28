@@ -11,7 +11,7 @@ const Todo = ({text,todo,todos,setTodos}) => {
         setTodos(todos.map(item => {
             if(item.id === todo.id){
                 return{
-                    ...item, completed: !item.complete
+                    ...item, completed: !item.completed
                 }
             }
             return item;
